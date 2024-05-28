@@ -23,6 +23,10 @@ const config = {
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
+      spacing: {
+        '13': '3.25rem',
+        '15': '3.75rem',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -52,6 +56,10 @@ const config = {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
+        },
+        sidenav: {
+          DEFAULT: 'hsl(var(--sidenav))',
+          foreground: 'hsl(var(--sidenav-foreground))',
         },
         card: {
           DEFAULT: 'hsl(var(--card))',
