@@ -1,9 +1,5 @@
 function Home() {
-  return (
-    <main>
-      <div>Aspire Challenge</div>
-    </main>
-  );
+  return <div>Home</div>;
 }
 
 export default Home;
