@@ -1,10 +1,11 @@
 import Image from 'next/image';
 
 import { Button } from '~/components/ui/button';
+import { CardsTabbedLayout } from '~/components/cards/tabbed-layout';
 
 function Cards() {
   return (
-    <div>
+    <div className="flex flex-col gap-9">
       <div className="flex items-end justify-between">
         <div className="flex flex-col gap-2">
           <div className="text-sm">Available Balance</div>
@@ -26,6 +27,8 @@ function Cards() {
           New Card
         </Button>
       </div>
+
+      <CardsTabbedLayout />
     </div>
   );
 }
