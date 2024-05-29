@@ -27,6 +27,13 @@ const config = {
         '13': '3.25rem',
         '15': '3.75rem',
       },
+      boxShadow: {
+        'md-center': 'var(--shadow-md-center)',
+        'sm-center': 'var(--shadow-sm-center)',
+      },
+      aspectRatio: {
+        idcard: '1.64',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
