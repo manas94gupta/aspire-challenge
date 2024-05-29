@@ -13,7 +13,12 @@ import { PayCard } from '~/components/cards/pay-card';
 
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
-export function PayCardsCarousel() {
+import { type CardType } from '~/data/cards/card-schema';
+interface PayCardsCarouselProps {
+  cards: CardType[];
+}
+
+export function PayCardsCarousel({ cards }: PayCardsCarouselProps) {
   const [isCardNumberVisible, setIsCardNumberVisible] = useState(false);
 
   return (
@@ -41,9 +46,9 @@ export function PayCardsCarousel() {
 
       <Carousel className="w-full">
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {cards.map((card, index) => (
             <CarouselItem key={index}>
-              <PayCard isCardNumberVisible={isCardNumberVisible} />
+              <PayCard isCardNumberVisible={isCardNumberVisible} card={card} />
             </CarouselItem>
           ))}
         </CarouselContent>

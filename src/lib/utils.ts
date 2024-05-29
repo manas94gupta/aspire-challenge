@@ -42,3 +42,7 @@ export function capitalizeString(input: string): string {
     })
     .join(' ');
 }
+
+export function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

@@ -2,13 +2,23 @@ import Image from 'next/image';
 
 import { maskString, splitString } from '~/lib/utils';
 
-export function PayCard({
-  isCardNumberVisible,
-}: {
+import { CARD_TYPES_MAP } from './cards.constants';
+
+import { type CardType } from '~/data/cards/card-schema';
+
+interface PayCardProps {
   isCardNumberVisible: boolean;
-}) {
+  card: CardType;
+}
+
+export function PayCard({ isCardNumberVisible, card }: PayCardProps) {
   return (
-    <div className="aspect-idcard h-full w-full max-w-[358px] overflow-hidden rounded-xl bg-accent p-[6%] text-accent-foreground md:max-h-[253px] md:max-w-[415px]">
+    <div
+      className="aspect-idcard h-full w-full max-w-[358px] overflow-hidden rounded-xl bg-[] p-[6%] tracking-widest text-accent-foreground md:max-h-[253px] md:max-w-[415px]"
+      style={{
+        background: CARD_TYPES_MAP[card.type].color,
+      }}
+    >
       <div className="mb-[2%] text-right xl:mb-[6%]">
         <div className="relative inline-block h-[28px] w-[20%]">
           <Image
@@ -20,13 +30,11 @@ export function PayCard({
         </div>
       </div>
       <div className="mb-[6%] text-[calc((1vw/57)*100)] font-bold xl:mb-[7%] xl:text-2xl">
-        Mark Henry
+        {card.name}
       </div>
       <div className="mb-[4%] flex gap-0.5 font-mono text-[calc((1vw/97.5)*100)] font-bold xl:mb-[5%] xl:text-sm">
         {splitString(
-          isCardNumberVisible
-            ? '4578901234567890'
-            : maskString('4578901234567890', 12)
+          isCardNumberVisible ? card.number : maskString(card.number, 12)
         ).map((num, i) => (
           <span key={i} className={`${(i + 1) % 4 ? '' : 'mr-5'}`}>
             {num}
@@ -34,13 +42,15 @@ export function PayCard({
         ))}
       </div>
       <div className="mb-[1%] flex gap-9 text-[calc((1vw/105)*100)] font-bold xl:mb-[1.5%] xl:text-xs">
-        <span>Thru: 12/25</span>
-        <span>CVV: ***</span>
+        <span>Thru: {card.valid_thru}</span>
+        <span>
+          CVV: <span className="font-mono">{maskString(card.cvv, 3, '*')}</span>
+        </span>
       </div>
       <div className="text-end">
         <div className="relative inline-block h-[23px] w-[16%]">
           <Image
-            src="/assets/images/cards/visa.png"
+            src={CARD_TYPES_MAP[card.type].iconPath}
             fill={true}
             alt="Visa"
             className="object-contain"

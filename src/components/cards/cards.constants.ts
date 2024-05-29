@@ -1,3 +1,8 @@
+export const CARD_TABS = [
+  { label: 'My Debit Cards', value: 'my-cards' },
+  { label: 'All Company Cards', value: 'company-cards' },
+] as const;
+
 export const CARD_ACTIONS = [
   {
     label: 'Freeze Card',
@@ -24,7 +29,7 @@ export const CARD_ACTIONS = [
     iconPath: '/assets/images/icons/cancel.png',
     clickAction: 'cancel',
   },
-];
+] as const;
 
 export const CARD_DETAILS_OPTIONS = [
   {
@@ -37,10 +42,30 @@ export const CARD_DETAILS_OPTIONS = [
     iconPath: '/assets/images/icons/recent-transactions.png',
     name: 'recent-transactions',
   },
-];
+] as const;
 
-export const CARD_TYPES = ['visa', 'mastercard', 'amex'];
+export const CARD_TYPES_MAP = {
+  visa: {
+    label: 'Visa',
+    iconPath: '/assets/images/cards/visa.png',
+    color: '#01D167',
+  },
+  mastercard: {
+    label: 'Mastercard',
+    iconPath: '/assets/images/cards/mastercard.png',
+    color: '#F6AE2D',
+  },
+  amex: {
+    label: 'American Express',
+    iconPath: '/assets/images/cards/amex.png',
+    color: '#536DFF',
+  },
+} as const;
 
-export const VENDOR_TYPES = ['accessories', 'flights', 'subscriptions'];
+export const VENDOR_TYPES = [
+  'accessories',
+  'flights',
+  'subscriptions',
+] as const;
 
-export const TRANSACTION_TYPES = ['debit', 'credit'];
+export const TRANSACTION_TYPES = ['debit', 'credit'] as const;

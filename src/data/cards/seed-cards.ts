@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import {
-  CARD_TYPES,
+  CARD_TYPES_MAP,
   VENDOR_TYPES,
   TRANSACTION_TYPES,
 } from '~/components/cards/cards.constants';
@@ -20,6 +20,15 @@ function getRandomCardValidity() {
   const year = String(randomDate.getUTCFullYear()).slice(-2);
 
   return `${month}/${year}`;
+}
+
+function getRandomCardDetails() {
+  return {
+    current_limit: faker.number.int({ min: 1100, max: 80000 }),
+    online_transactions: faker.datatype.boolean(),
+    atm_withdrawals: faker.datatype.boolean(),
+    atm_limit: faker.number.int({ min: 1100, max: 40000 }),
+  };
 }
 
 function getRandomTransactions() {
@@ -44,7 +53,8 @@ function getRandomCards() {
     number: faker.finance.creditCardNumber().split('-').join(''),
     valid_thru: getRandomCardValidity(),
     cvv: faker.finance.creditCardCVV(),
-    type: faker.helpers.arrayElement(CARD_TYPES),
+    type: faker.helpers.arrayElement(Object.keys(CARD_TYPES_MAP)),
+    card_details: getRandomCardDetails(),
     transactions: getRandomTransactions(),
   }));
 
