@@ -25,3 +25,16 @@ export const CARD_ACTIONS = [
     clickAction: 'cancel',
   },
 ];
+
+export const CARD_DETAILS_OPTIONS = [
+  {
+    label: 'Card Details',
+    iconPath: '/assets/images/icons/card-details.png',
+    name: 'card-details',
+  },
+  {
+    label: 'Recent Transactions',
+    iconPath: '/assets/images/icons/recent-transactions.png',
+    name: 'recent-transactions',
+  },
+];

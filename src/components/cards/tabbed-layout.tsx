@@ -2,8 +2,10 @@ import Image from 'next/image';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 import { Card, CardContent } from '~/components/ui/card';
-import { PayCardsCarousel } from '~/components/cards/pay-cards-carousel';
 import { Button } from '~/components/ui/button';
+
+import { PayCardsCarousel } from '~/components/cards/pay-cards-carousel';
+import { CardDetails } from '~/components/cards/card-details';
 
 import { CARD_ACTIONS } from './cards.constants';
 
@@ -40,7 +42,9 @@ export function CardsTabbedLayout() {
                 ))}
               </div>
             </div>
-            <div>Details</div>
+            <div>
+              <CardDetails />
+            </div>
           </CardContent>
         </Card>
       </TabsContent>
