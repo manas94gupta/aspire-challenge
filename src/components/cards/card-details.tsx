@@ -15,6 +15,7 @@ export function CardDetails() {
       <Accordion
         type="single"
         defaultValue={CARD_DETAILS_OPTIONS[1].name}
+        collapsible
         className="w-full"
       >
         {CARD_DETAILS_OPTIONS.map((option) => (
