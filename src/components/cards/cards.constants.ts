@@ -38,3 +38,9 @@ export const CARD_DETAILS_OPTIONS = [
     name: 'recent-transactions',
   },
 ];
+
+export const CARD_TYPES = ['visa', 'mastercard', 'amex'];
+
+export const VENDOR_TYPES = ['accessories', 'flights', 'subscriptions'];
+
+export const TRANSACTION_TYPES = ['debit', 'credit'];

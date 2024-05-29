@@ -29,3 +29,16 @@ export function maskString(
 export function splitString(input: string, separator: string = ''): string[] {
   return input.split(separator);
 }
+
+export function capitalizeString(input: string): string {
+  return input
+    .split(' ')
+    .map((word) => {
+      if (word.length > 0) {
+        return word[0].toUpperCase() + word.slice(1);
+      } else {
+        return word;
+      }
+    })
+    .join(' ');
+}
