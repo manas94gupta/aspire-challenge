@@ -15,6 +15,7 @@ export function useFetch<T, O = undefined>(
   input: string | ((options: O) => Promise<T>),
   options?: O
 ): FetchResult<T> {
+  console.log('fetching');
   const [state, setState] = useState<FetchState<T>>({
     data: null,
     loading: false,

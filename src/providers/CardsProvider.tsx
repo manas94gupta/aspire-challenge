@@ -3,9 +3,11 @@
 import {
   createContext,
   useContext,
+  useState,
   useReducer,
   ReactNode,
   Dispatch,
+  SetStateAction,
 } from 'react';
 
 import { type CardType } from '~/data/cards/card-schema';
@@ -23,6 +25,13 @@ const CardsContext = createContext<CardsState | undefined>(undefined);
 const CardsDispatchContext = createContext<Dispatch<Action> | undefined>(
   undefined
 );
+const CardsStateContext = createContext<
+  | {
+      selectedCard: CardType | undefined;
+      setSelectedCard: Dispatch<SetStateAction<CardType | undefined>>;
+    }
+  | undefined
+>(undefined);
 
 const initialCards: CardsState = [];
 
@@ -75,11 +84,16 @@ interface CardsProviderProps {
 
 export function CardsProvider({ children }: CardsProviderProps) {
   const [cards, dispatch] = useReducer(cardsReducer, initialCards);
+  const [selectedCard, setSelectedCard] = useState<CardType | undefined>(
+    undefined
+  );
 
   return (
     <CardsContext.Provider value={cards}>
       <CardsDispatchContext.Provider value={dispatch}>
-        {children}
+        <CardsStateContext.Provider value={{ selectedCard, setSelectedCard }}>
+          {children}
+        </CardsStateContext.Provider>
       </CardsDispatchContext.Provider>
     </CardsContext.Provider>
   );
@@ -97,6 +111,14 @@ export function useCardsDispatch() {
   const context = useContext(CardsDispatchContext);
   if (context === undefined) {
     throw new Error('useCardsDispatch must be used within a CardsProvider');
+  }
+  return context;
+}
+
+export function useCardsState() {
+  const context = useContext(CardsStateContext);
+  if (context === undefined) {
+    throw new Error('useCardSelected must be used within a CardsProvider');
   }
   return context;
 }

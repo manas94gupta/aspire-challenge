@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+// Libraries
+import { useState, useEffect } from 'react';
 
+// UI Components
 import {
   Carousel,
   CarouselContent,
@@ -9,17 +11,48 @@ import {
   CarouselDots,
 } from '~/components/ui/carousel';
 import { Button } from '~/components/ui/button';
+
+// Components
 import { PayCard } from '~/components/cards/pay-card';
 
+// Icons
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
-import { type CardType } from '~/data/cards/card-schema';
-interface PayCardsCarouselProps {
-  cards: CardType[];
-}
+// Hooks
+import { useCards, useCardsState } from '~/providers/CardsProvider';
 
-export function PayCardsCarousel({ cards = [] }: PayCardsCarouselProps) {
+// Types
+import { type CarouselApi } from '~/components/ui/carousel';
+
+export function PayCardsCarousel() {
   const [isCardNumberVisible, setIsCardNumberVisible] = useState(false);
+  const [selectedSlide, setSelectedSlide] = useState(0);
+  const cards = useCards();
+  const { setSelectedCard } = useCardsState();
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    setSelectedCard(cards?.[selectedSlide]);
+  }, [selectedSlide, cards, setSelectedCard]);
+
+  useEffect(() => {
+    if (!carouselApi) {
+      return;
+    }
+
+    function handleSlideSelect(e: CarouselApi) {
+      const currentSlide = e?.selectedScrollSnap();
+      if (currentSlide) {
+        setSelectedSlide(currentSlide);
+      }
+    }
+
+    carouselApi.on('select', handleSlideSelect);
+
+    return () => {
+      carouselApi.off('select', handleSlideSelect);
+    };
+  }, [carouselApi]);
 
   return (
     <div>
@@ -44,10 +77,10 @@ export function PayCardsCarousel({ cards = [] }: PayCardsCarouselProps) {
         </Button>
       </div>
 
-      <Carousel className="w-full">
+      <Carousel setApi={setCarouselApi} className="w-full">
         <CarouselContent>
-          {cards?.map((card, index) => (
-            <CarouselItem key={index}>
+          {cards?.map((card) => (
+            <CarouselItem key={card.id}>
               <PayCard isCardNumberVisible={isCardNumberVisible} card={card} />
             </CarouselItem>
           ))}

@@ -2,7 +2,6 @@
 
 // Libraries
 import { useEffect } from 'react';
-import { z } from 'zod';
 import Image from 'next/image';
 
 // UI Components
@@ -24,9 +23,6 @@ import { CARD_ACTIONS, CARD_TABS } from './cards.constants';
 
 // Utils
 import { wait } from '~/lib/utils';
-
-// Schema
-import { cardSchema } from '~/data/cards/card-schema';
 
 // Types
 import { type CardType } from '~/data/cards/card-schema';
@@ -60,7 +56,6 @@ async function fetchCards(type: CardTabValue): Promise<CardType[]> {
 export function ViewCards({ type }: ViewCardsProps) {
   const cardsDispatch = useCardsDispatch();
   const { data: cards } = useFetch<CardType[], CardTabValue>(fetchCards, type);
-  console.log(cards);
 
   useEffect(() => {
     // Dispatch action to store cards
@@ -73,7 +68,7 @@ export function ViewCards({ type }: ViewCardsProps) {
     <Card>
       <CardContent className="grid grid-cols-[minmax(0,_415px)_minmax(50%,_1fr)] gap-11 px-10 py-8">
         <div className="flex flex-col gap-8">
-          <PayCardsCarousel cards={cards} />
+          <PayCardsCarousel />
 
           <div className="bg-primary-muted grid grid-cols-5 items-baseline justify-around rounded-2xl p-5">
             {CARD_ACTIONS.map((action) => (
