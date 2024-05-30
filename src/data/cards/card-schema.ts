@@ -4,12 +4,15 @@ import {
   TRANSACTION_TYPES,
   CARD_STATUSES,
   CARD_TYPES_MAP,
+  VENDOR_TYPES_MAP,
 } from '~/components/cards/cards.constants';
+
+type VendorTypeKey = keyof typeof VENDOR_TYPES_MAP;
 
 export const transactionSchema = z.object({
   id: z.string(),
   vendor: z.string(),
-  vendor_type: z.string(),
+  vendor_type: z.enum(Object.keys(VENDOR_TYPES_MAP) as [VendorTypeKey]),
   date: z.string(),
   amount: z.string(),
   type: z.enum(TRANSACTION_TYPES),

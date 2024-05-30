@@ -71,3 +71,21 @@ export const VENDOR_TYPES = [
 export const TRANSACTION_TYPES = ['debit', 'credit'] as const;
 
 export const CARD_STATUSES = ['active', 'inactive', 'cancelled'] as const;
+
+export const VENDOR_TYPES_MAP = {
+  flights: {
+    label: 'Flights',
+    iconPath: '/assets/images/icons/flights.png',
+    color: '#00D6B51A',
+  },
+  subscriptions: {
+    label: 'Subscriptions',
+    iconPath: '/assets/images/icons/subscriptions.png',
+    color: '#009DFF1A',
+  },
+  accessories: {
+    label: 'Accessories',
+    iconPath: '/assets/images/icons/accessories.png',
+    color: '#F251951A',
+  },
+} as const;
