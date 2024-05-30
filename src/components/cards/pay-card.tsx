@@ -32,11 +32,14 @@ export function PayCard({ isCardNumberVisible, card }: PayCardProps) {
       <div className="mb-[6%] text-[calc((1vw/57)*100)] font-bold xl:mb-[7%] xl:text-2xl">
         {card.name}
       </div>
-      <div className="mb-[4%] flex gap-0.5 font-mono text-[calc((1vw/97.5)*100)] font-bold xl:mb-[5%] xl:text-sm">
+      <div className="mb-[4%] flex gap-0.5 font-mono text-[calc((1vw/97.5)*100)] font-bold md:gap-0 lg:gap-0.5 xl:mb-[5%] xl:text-sm">
         {splitString(
           isCardNumberVisible ? card.number : maskString(card.number, 12)
         ).map((num, i) => (
-          <span key={i} className={`${(i + 1) % 4 ? '' : 'mr-5'}`}>
+          <span
+            key={i}
+            className={`${(i + 1) % 4 ? '' : 'mr-3 md:mr-1 lg:mr-3'}`}
+          >
             {num}
           </span>
         ))}
