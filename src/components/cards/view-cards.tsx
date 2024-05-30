@@ -1,19 +1,39 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+'use client';
+
+// Libraries
+import { useEffect } from 'react';
 import { z } from 'zod';
 import Image from 'next/image';
 
+// UI Components
 import { Card, CardContent } from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
+// Components
 import { PayCardsCarousel } from '~/components/cards/pay-cards-carousel';
 import { CardDetails } from '~/components/cards/card-details';
 
+// Context
+import { useCardsDispatch } from '~/providers/CardsProvider';
+
+// Hooks
+import { useFetch } from '~/hooks/useFetch';
+
+// Constants
 import { CARD_ACTIONS, CARD_TABS } from './cards.constants';
 
+// Utils
+import { wait } from '~/lib/utils';
+
+// Schema
 import { cardSchema } from '~/data/cards/card-schema';
 
-import { wait } from '~/lib/utils';
+// Types
+import { type CardType } from '~/data/cards/card-schema';
+
+// Data
+import myCards from '~/data/cards/my-cards.json';
+import companyCards from '~/data/cards/company-cards.json';
 
 type CardTabValue = (typeof CARD_TABS)[number]['value'];
 
@@ -21,25 +41,33 @@ interface ViewCardsProps {
   type: CardTabValue;
 }
 
-// Simulate a database read for cards.
-async function getCards(type: CardTabValue) {
-  const data = await fs.readFile(
-    path.join(
-      process.cwd(),
-      `src/data/cards/${type === 'my-cards' ? 'my-cards' : 'company-cards'}.json`
-    )
-  );
+// Simulate cards fetching
+async function fetchCards(type: CardTabValue): Promise<CardType[]> {
+  await wait(1000);
 
-  const tasks = JSON.parse(data.toString());
-
-  // emulate a delay
-  await wait(3000);
-
-  return z.array(cardSchema).parse(tasks);
+  switch (type) {
+    case 'my-cards':
+      return Promise.resolve(myCards as CardType[]);
+    case 'company-cards':
+      return Promise.resolve(companyCards as CardType[]);
+    default:
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const _exhaustiveCheck: never = type;
+      throw new Error('Invalid card type');
+  }
 }
 
-export async function ViewCards({ type }: ViewCardsProps) {
-  const cards = await getCards(type);
+export function ViewCards({ type }: ViewCardsProps) {
+  const cardsDispatch = useCardsDispatch();
+  const { data: cards } = useFetch<CardType[], CardTabValue>(fetchCards, type);
+  console.log(cards);
+
+  useEffect(() => {
+    // Dispatch action to store cards
+    if (cards) {
+      cardsDispatch({ type: 'initialFetch', cards });
+    }
+  }, [cards, cardsDispatch]);
 
   return (
     <Card>
