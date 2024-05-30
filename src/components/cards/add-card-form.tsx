@@ -46,7 +46,6 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
 
   async function handleAddCard(data: CardFormData) {
     setIsLoading(true);
-    console.log(data, isLoading);
 
     const newCard = {
       ...cardData,
@@ -66,12 +65,13 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
       className="flex flex-col gap-4"
     >
       <div className="flex w-full flex-col gap-2">
-        <Label htmlFor="email">Name</Label>
+        <Label htmlFor="name">Name</Label>
         <Input
           type="text"
           {...register('name')}
           id="name"
           placeholder="Enter name as on card"
+          autoComplete="name"
         />
         <span className="text-xs text-destructive">
           {errors?.name?.message ?? null}

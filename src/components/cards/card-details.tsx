@@ -47,6 +47,11 @@ export function CardDetails() {
 
               {option.name === 'recent-transactions' && (
                 <ul>
+                  {selectedCard?.transactions.length === 0 ? (
+                    <li className="text-center">
+                      No transactions done on this card yet.
+                    </li>
+                  ) : null}
                   {selectedCard?.transactions.map((transaction) => (
                     <TransactionLi
                       key={transaction.id}
