@@ -51,7 +51,7 @@ function getRandomCards() {
   const cards = Array.from({ length: 5 }, () => ({
     id: crypto.randomUUID(),
     name: faker.person.fullName(),
-    number: faker.finance.creditCardNumber().split('-').join(''),
+    number: faker.finance.creditCardNumber({ issuer: '################' }),
     valid_thru: getRandomCardValidity(),
     cvv: faker.finance.creditCardCVV(),
     status: 'active',
