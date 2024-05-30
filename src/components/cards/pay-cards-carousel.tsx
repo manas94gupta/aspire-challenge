@@ -42,7 +42,7 @@ export function PayCardsCarousel() {
 
     function handleSlideSelect(e: CarouselApi) {
       const currentSlide = e?.selectedScrollSnap();
-      if (currentSlide) {
+      if (currentSlide !== undefined) {
         setSelectedSlide(currentSlide);
       }
     }
