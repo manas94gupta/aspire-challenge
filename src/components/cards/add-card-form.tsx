@@ -16,7 +16,7 @@ import { useCardsDispatch } from '~/providers/CardsProvider';
 
 // Utils
 import { wait } from '~/lib/utils';
-import { getRandomPayCard } from '~/components/cards/card.utils';
+import { getRandomPayCard } from '~/components/cards/cards.utils';
 
 // Types
 import { type CardType } from '~/data/cards/card-schema';
@@ -54,7 +54,9 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
 
     cardsDispatch({ type: 'added', card: newCard });
 
+    // Simulate api latency
     await wait(500);
+
     setIsLoading(false);
     closeDialog();
   }
