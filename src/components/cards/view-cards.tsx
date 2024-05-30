@@ -21,6 +21,9 @@ import { useFetch } from '~/hooks/useFetch';
 // Constants
 import { CARD_ACTIONS, CARD_TABS } from './cards.constants';
 
+// Loaders
+import { CardsLoader } from './cards.loader';
+
 // Utils
 import { wait } from '~/lib/utils';
 
@@ -55,7 +58,10 @@ async function fetchCards(type: CardTabValue): Promise<CardType[]> {
 
 export function ViewCards({ type }: ViewCardsProps) {
   const cardsDispatch = useCardsDispatch();
-  const { data: cards } = useFetch<CardType[], CardTabValue>(fetchCards, type);
+  const { data: cards, loading } = useFetch<CardType[], CardTabValue>(
+    fetchCards,
+    type
+  );
 
   useEffect(() => {
     // Dispatch action to store cards
@@ -67,31 +73,37 @@ export function ViewCards({ type }: ViewCardsProps) {
   return (
     <Card>
       <CardContent className="grid grid-cols-[minmax(0,_415px)_minmax(50%,_1fr)] gap-11 px-10 py-8">
-        <div className="flex flex-col gap-8">
-          <PayCardsCarousel />
+        {loading ? (
+          <CardsLoader />
+        ) : (
+          <>
+            <div className="flex flex-col gap-8">
+              <PayCardsCarousel />
 
-          <div className="bg-primary-muted grid grid-cols-5 items-baseline justify-around rounded-2xl p-5">
-            {CARD_ACTIONS.map((action) => (
-              <Button
-                key={action.label}
-                variant="ghost"
-                className="flex h-auto flex-col gap-2 text-wrap text-xs text-card-foreground hover:bg-transparent hover:text-inherit"
-                // onClick={() => console.log(action.clickAction)}
-              >
-                <Image
-                  src={action.iconPath}
-                  width={32}
-                  height={32}
-                  alt="Aspire"
-                />
-                <span>{action.label}</span>
-              </Button>
-            ))}
-          </div>
-        </div>
-        <div>
-          <CardDetails />
-        </div>
+              <div className="bg-primary-muted grid grid-cols-5 items-baseline justify-around rounded-2xl p-5">
+                {CARD_ACTIONS.map((action) => (
+                  <Button
+                    key={action.label}
+                    variant="ghost"
+                    className="flex h-auto flex-col gap-2 text-wrap text-xs text-card-foreground hover:bg-transparent hover:text-inherit"
+                    // onClick={() => console.log(action.clickAction)}
+                  >
+                    <Image
+                      src={action.iconPath}
+                      width={32}
+                      height={32}
+                      alt="Aspire"
+                    />
+                    <span>{action.label}</span>
+                  </Button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <CardDetails />
+            </div>
+          </>
+        )}
       </CardContent>
     </Card>
   );
