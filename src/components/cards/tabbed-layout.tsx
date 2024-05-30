@@ -1,9 +1,10 @@
-import { Suspense } from 'react';
-
+// UI Components
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 
+// Components
 import { ViewCards } from './view-cards';
 
+// Constants
 import { CARD_TABS } from './cards.constants';
 
 export function CardsTabbedLayout() {
@@ -18,9 +19,7 @@ export function CardsTabbedLayout() {
       </TabsList>
       {CARD_TABS.map((tab) => (
         <TabsContent key={tab.value} value={tab.value}>
-          <Suspense fallback={<p>Loading...</p>}>
-            <ViewCards type={tab.value} />
-          </Suspense>
+          <ViewCards type={tab.value} />
         </TabsContent>
       ))}
     </Tabs>
