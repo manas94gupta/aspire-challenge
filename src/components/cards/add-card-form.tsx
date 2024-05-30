@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 import { Button } from '~/components/ui/button';
+import { useToast } from '~/components/ui/use-toast';
 
 // Context
 import { useCardsDispatch } from '~/providers/CardsProvider';
@@ -29,6 +30,7 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
   const [cardData] = useState<CardType>(getRandomPayCard);
   const cardsDispatch = useCardsDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const cardFormSchema: ZodType<CardFormData> = z.object({
     name: z.string().min(2, {
@@ -58,6 +60,12 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
     await wait(500);
 
     setIsLoading(false);
+
+    toast({
+      title: 'New card added successfully.',
+      description: 'Now you can manage this card on the go.',
+    });
+
     closeDialog();
   }
 

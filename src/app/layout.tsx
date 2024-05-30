@@ -1,4 +1,8 @@
+// Libraries
 import type { Metadata } from 'next';
+
+// UI Components
+import { Toaster } from '~/components/ui/toaster';
 
 // Components
 import { SidenavLayout } from '~/components/sidenav/sidenav-layout';
@@ -28,6 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${openSans.variable} font-sans`}>
         <SidenavLayout>{children}</SidenavLayout>
+        <Toaster />
       </body>
     </html>
   );
