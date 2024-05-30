@@ -17,7 +17,7 @@ type CardsState = CardType[];
 // Define action types
 type Action =
   | { type: 'initialFetch'; cards: CardsState }
-  | { type: 'added' }
+  | { type: 'added'; card: CardType }
   | { type: 'changed'; card: CardType };
 
 // Create contexts
@@ -41,25 +41,7 @@ function cardsReducer(cards: CardsState, action: Action): CardsState {
       return [...action.cards];
     }
     case 'added': {
-      return [
-        ...cards,
-        {
-          id: crypto.randomUUID(),
-          name: '',
-          number: '',
-          valid_thru: '',
-          cvv: '',
-          type: 'visa',
-          status: 'active',
-          card_details: {
-            current_limit: 0,
-            online_transactions: false,
-            atm_withdrawals: false,
-            atm_limit: 0,
-          },
-          transactions: [],
-        },
-      ];
+      return [action.card, ...cards];
     }
     case 'changed': {
       return cards.map((card) => {

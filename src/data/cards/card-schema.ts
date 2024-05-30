@@ -1,5 +1,7 @@
+// Libraries
 import { z } from 'zod';
 
+// Constants
 import {
   TRANSACTION_TYPES,
   CARD_STATUSES,
@@ -25,7 +27,7 @@ export const cardDetailsSchema = z.object({
   atm_limit: z.number(),
 });
 
-type CardTypeKey = keyof typeof CARD_TYPES_MAP;
+export type CardTypeType = keyof typeof CARD_TYPES_MAP;
 
 export const cardSchema = z.object({
   id: z.string(),
@@ -34,11 +36,12 @@ export const cardSchema = z.object({
   valid_thru: z.string(),
   cvv: z.string(),
   status: z.enum(CARD_STATUSES),
-  type: z.enum(Object.keys(CARD_TYPES_MAP) as [CardTypeKey]),
+  type: z.enum(Object.keys(CARD_TYPES_MAP) as [CardTypeType]),
   card_details: cardDetailsSchema,
   transactions: z.array(transactionSchema),
 });
 
+export type CardStatusType = (typeof CARD_STATUSES)[number];
 export type TransactionType = z.infer<typeof transactionSchema>;
 export type CardDetailsType = z.infer<typeof cardDetailsSchema>;
 export type CardType = z.infer<typeof cardSchema>;

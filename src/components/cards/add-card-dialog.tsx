@@ -25,6 +25,9 @@ import {
   DrawerTrigger,
 } from '~/components/ui/drawer';
 
+// Components
+import { AddCardForm } from './add-card-form';
+
 // Hooks
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 
@@ -51,11 +54,12 @@ function AddCardDialog() {
           <DialogHeader>
             <DialogTitle>Add New Card</DialogTitle>
             <DialogDescription>
-              We&apos;ve filled out most of the fields for you. Just fill the
-              remaining fields and you&apos;re good to go
+              We&apos;ve pre filled the important details for you. Just give us
+              your name and you&apos;re good to go
             </DialogDescription>
           </DialogHeader>
-          {/* <AddCardForm /> */}
+
+          <AddCardForm closeDialog={() => setOpen(false)} />
         </DialogContent>
       </Dialog>
     );
@@ -83,7 +87,7 @@ function AddCardDialog() {
             remaining fields and you&apos;re good to go
           </DrawerDescription>
         </DrawerHeader>
-        {/* <AddCardForm className="px-4" /> */}
+        <AddCardForm closeDialog={() => setOpen(false)} />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
