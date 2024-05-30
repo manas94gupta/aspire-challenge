@@ -18,6 +18,7 @@ type CardsState = CardType[];
 type Action =
   | { type: 'initialFetch'; cards: CardsState }
   | { type: 'added'; card: CardType }
+  | { type: 'freeze'; cardId: string }
   | { type: 'changed'; card: CardType };
 
 // Create contexts
@@ -42,6 +43,18 @@ function cardsReducer(cards: CardsState, action: Action): CardsState {
     }
     case 'added': {
       return [action.card, ...cards];
+    }
+    case 'freeze': {
+      return cards.map((card) => {
+        if (card.id === action.cardId) {
+          return {
+            ...card,
+            status: card.status === 'inactive' ? 'active' : 'inactive',
+          };
+        } else {
+          return card;
+        }
+      });
     }
     case 'changed': {
       return cards.map((card) => {

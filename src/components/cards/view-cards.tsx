@@ -2,15 +2,14 @@
 
 // Libraries
 import { useEffect } from 'react';
-import Image from 'next/image';
 
 // UI Components
 import { Card, CardContent } from '~/components/ui/card';
-import { Button } from '~/components/ui/button';
 
 // Components
 import { PayCardsCarousel } from '~/components/cards/pay-cards-carousel';
 import { CardDetails } from '~/components/cards/card-details';
+import { CardActions } from '~/components/cards/card-actions';
 
 // Context
 import { useCardsDispatch } from '~/providers/CardsProvider';
@@ -19,7 +18,7 @@ import { useCardsDispatch } from '~/providers/CardsProvider';
 import { useFetch } from '~/hooks/useFetch';
 
 // Constants
-import { CARD_ACTIONS, CARD_TABS } from './cards.constants';
+import { CARD_TABS } from './cards.constants';
 
 // Loaders
 import { CardsLoader } from './cards.loader';
@@ -80,24 +79,7 @@ export function ViewCards({ type }: ViewCardsProps) {
             <div className="flex flex-col gap-8">
               <PayCardsCarousel />
 
-              <div className="bg-primary-muted grid grid-cols-5 items-baseline justify-around rounded-2xl p-5">
-                {CARD_ACTIONS.map((action) => (
-                  <Button
-                    key={action.label}
-                    variant="ghost"
-                    className="flex h-auto flex-col gap-2 text-wrap text-xs text-card-foreground hover:bg-transparent hover:text-inherit"
-                    // onClick={() => console.log(action.clickAction)}
-                  >
-                    <Image
-                      src={action.iconPath}
-                      width={32}
-                      height={32}
-                      alt="Aspire"
-                    />
-                    <span>{action.label}</span>
-                  </Button>
-                ))}
-              </div>
+              <CardActions />
             </div>
             <div>
               <CardDetails />
