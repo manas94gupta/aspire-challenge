@@ -11,6 +11,7 @@ import {
   CARD_TYPES_MAP,
   VENDOR_TYPES,
   TRANSACTION_TYPES,
+  CARD_STATUSES,
 } from '~/components/cards/cards.constants';
 
 function getRandomCardValidity() {
@@ -53,6 +54,7 @@ function getRandomCards() {
     number: faker.finance.creditCardNumber().split('-').join(''),
     valid_thru: getRandomCardValidity(),
     cvv: faker.finance.creditCardCVV(),
+    status: 'active',
     type: faker.helpers.arrayElement(Object.keys(CARD_TYPES_MAP)),
     card_details: getRandomCardDetails(),
     transactions: getRandomTransactions(),

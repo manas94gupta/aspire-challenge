@@ -69,3 +69,5 @@ export const VENDOR_TYPES = [
 ] as const;
 
 export const TRANSACTION_TYPES = ['debit', 'credit'] as const;
+
+export const CARD_STATUSES = ['active', 'inactive', 'cancelled'] as const;

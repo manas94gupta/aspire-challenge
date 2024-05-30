@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import {
   TRANSACTION_TYPES,
+  CARD_STATUSES,
   CARD_TYPES_MAP,
 } from '~/components/cards/cards.constants';
 
@@ -29,6 +30,7 @@ export const cardSchema = z.object({
   number: z.string(),
   valid_thru: z.string(),
   cvv: z.string(),
+  status: z.enum(CARD_STATUSES),
   type: z.enum(Object.keys(CARD_TYPES_MAP) as [CardTypeKey]),
   card_details: cardDetailsSchema,
   transactions: z.array(transactionSchema),
