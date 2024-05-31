@@ -77,26 +77,28 @@ Open [http://localhost:3000/cards](http://localhost:3000/cards) on your browser 
 
 ## Folder Structure
 
+```bash
 .
-├── README.md  
-├── next-env.d.ts  
-├── next.config.mjs  
-├── package.json  
-├── pnpm-lock.yaml  
-├── postcss.config.mjs  
-├── public  
-│ ├── assets  
-│ └── favicon.ico  
-├── src  
-│ ├── app  
-│ ├── components  
-│ ├── data  
-│ ├── hooks  
-│ ├── lib  
-│ ├── providers  
-│ └── styles  
-├── tailwind.config.ts  
+├── README.md
+├── next-env.d.ts
+├── next.config.mjs
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.mjs
+├── public
+│ ├── assets
+│ └── favicon.ico
+├── src
+│ ├── app
+│ ├── components
+│ ├── data
+│ ├── hooks
+│ ├── lib
+│ ├── providers
+│ └── styles
+├── tailwind.config.ts
 └── tsconfig.json
+```
 
 - On the root level there are all the config files like `next-env.d.ts`, `next.config.mjs`, `package.json`, `pnpm-lock.yaml`, `postcss.config.mjs`, `tailwind.config.ts`, and `tsconfig.json`.
 - `public` dir holds the static assets like images, favicon, etc.
