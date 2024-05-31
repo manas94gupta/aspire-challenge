@@ -27,4 +27,4 @@ export const NAV_ITEMS = [
     href: '/settings',
     icon: Icons.settings,
   },
-];
+] as const;

@@ -42,4 +42,11 @@ const ResizableHandle = ({
   </ResizablePrimitive.PanelResizeHandle>
 );
 
-export { ResizablePanelGroup, ResizablePanel, ResizableHandle };
+type ImperativePanelHandle = ResizablePrimitive.ImperativePanelHandle;
+
+export {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+  type ImperativePanelHandle,
+};

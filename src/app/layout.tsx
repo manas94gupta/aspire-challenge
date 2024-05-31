@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 
 // UI Components
 import { Toaster } from '~/components/ui/toaster';
+import { TooltipProvider } from '~/components/ui/tooltip';
 
 // Components
 import { SidenavLayout } from '~/components/sidenav/sidenav-layout';
@@ -31,8 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} font-sans`}>
-        <SidenavLayout>{children}</SidenavLayout>
-        <Toaster />
+        <TooltipProvider delayDuration={0}>
+          <SidenavLayout>{children}</SidenavLayout>
+          <Toaster />
+        </TooltipProvider>
       </body>
     </html>
   );
