@@ -5,8 +5,8 @@ The project focuses on creating a web application (inspired by the real Aspire a
 
 Only the Cards view / page is implemented as part of the challenge.
 
-- Live Demo:
-- GitHub Repo:
+- Live Demo: [https://aspire-challenge-manas94guptas-projects.vercel.app/cards](https://aspire-challenge-manas94guptas-projects.vercel.app/cards)
+- GitHub Repo: [https://github.com/manas94gupta/aspire-challenge](https://github.com/manas94gupta/aspire-challenge)
 
 ## How to setup and run locally
 
@@ -78,24 +78,24 @@ Open [http://localhost:3000/cards](http://localhost:3000/cards) on your browser 
 ## Folder Structure
 
 .
-├── README.md
-├── next-env.d.ts
-├── next.config.mjs
-├── package.json
-├── pnpm-lock.yaml
-├── postcss.config.mjs
-├── public
-│ ├── assets
-│ └── favicon.ico
-├── src
-│ ├── app
-│ ├── components
-│ ├── data
-│ ├── hooks
-│ ├── lib
-│ ├── providers
-│ └── styles
-├── tailwind.config.ts
+├── README.md  
+├── next-env.d.ts  
+├── next.config.mjs  
+├── package.json  
+├── pnpm-lock.yaml  
+├── postcss.config.mjs  
+├── public  
+│ ├── assets  
+│ └── favicon.ico  
+├── src  
+│ ├── app  
+│ ├── components  
+│ ├── data  
+│ ├── hooks  
+│ ├── lib  
+│ ├── providers  
+│ └── styles  
+├── tailwind.config.ts  
 └── tsconfig.json
 
 - On the root level there are all the config files like `next-env.d.ts`, `next.config.mjs`, `package.json`, `pnpm-lock.yaml`, `postcss.config.mjs`, `tailwind.config.ts`, and `tsconfig.json`.
