@@ -26,7 +26,6 @@ export function SidenavLayout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const panel = sideNavRef.current;
-    console.log(isSidenavCollapsed);
     if (isSidenavCollapsed) {
       panel?.collapse();
     } else {
