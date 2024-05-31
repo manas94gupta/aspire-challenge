@@ -11,7 +11,6 @@ import {
   CARD_TYPES_MAP,
   VENDOR_TYPES_MAP,
   TRANSACTION_TYPES,
-  CARD_STATUSES,
 } from '~/components/cards/cards.constants';
 
 function getRandomCardValidity() {

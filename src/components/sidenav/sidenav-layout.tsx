@@ -52,7 +52,7 @@ export function SidenavLayout({ children }: { children: React.ReactNode }) {
         </ResizablePanel>
         <ResizableHandle disabled />
         <ResizablePanel defaultSize={75}>
-          <main className="lg:px-15 container h-full overflow-auto p-12 lg:py-12">
+          <main className="lg:px-15 container h-full overflow-auto p-12">
             {children}
           </main>
         </ResizablePanel>

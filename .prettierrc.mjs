@@ -4,11 +4,7 @@ const config = {
   "bracketSpacing": true,
   "bracketSameLine": false,
   "singleQuote": true,
-  "tabWidth": 2,
-  plugins: [
-    "prettier-plugin-tailwindcss"
-  ],
-
+  "tabWidth": 2
 };
 
 export default config;
