@@ -2,6 +2,7 @@
 
 // Libraries
 import { useEffect } from 'react';
+import { z } from 'zod';
 
 // UI Components
 import { Card, CardContent } from '~/components/ui/card';
@@ -26,6 +27,9 @@ import { CardsLoader } from './cards.loader';
 // Utils
 import { wait } from '~/lib/utils';
 
+// Schemas
+import { cardSchema } from '~/data/cards/card-schema';
+
 // Types
 import { type CardType } from '~/data/cards/card-schema';
 
@@ -44,10 +48,14 @@ async function fetchCards(type: CardTabValue): Promise<CardType[]> {
   await wait(1000);
 
   switch (type) {
-    case 'my-cards':
-      return Promise.resolve(myCards as CardType[]);
-    case 'company-cards':
-      return Promise.resolve(companyCards as CardType[]);
+    case 'my-cards': {
+      const cards = z.array(cardSchema).parse(myCards);
+      return Promise.resolve(cards);
+    }
+    case 'company-cards': {
+      const cards = z.array(cardSchema).parse(companyCards);
+      return Promise.resolve(cards);
+    }
     default:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const _exhaustiveCheck: never = type;
