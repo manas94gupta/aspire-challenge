@@ -1,9 +1,13 @@
+// Libraries
 import Image from 'next/image';
 
+// Utils
 import { maskString, splitString } from '~/lib/utils';
 
+// Constants
 import { CARD_TYPES_MAP } from './cards.constants';
 
+// Schema
 import { type CardType } from '~/data/cards/card-schema';
 
 interface PayCardProps {
@@ -39,6 +43,7 @@ export function PayCard({ isCardNumberVisible, card }: PayCardProps) {
           {card.name}
         </div>
         <div className="mb-[4%] flex gap-0.5 font-mono text-[calc((1vw/97.5)*100)] font-bold md:gap-0 lg:gap-0.5 xl:mb-[5%] xl:text-sm">
+          {/* eg: maskString('12345678', 4) => '****5678' then splitString('****5678') => ['*', '*', '*', '*', '5', '6', '7', '8'] */}
           {splitString(
             isCardNumberVisible ? card.number : maskString(card.number, 12)
           ).map((num, i) => (

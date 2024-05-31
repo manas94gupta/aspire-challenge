@@ -2,6 +2,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   color?: string;
 }
 
+// Create a Icons compound component for nav icons
 export const Icons = {
   home: (props: IconProps) => (
     <svg

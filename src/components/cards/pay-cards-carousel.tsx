@@ -32,6 +32,7 @@ export function PayCardsCarousel() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   useEffect(() => {
+    // Update selected card in store when user changes the slide in carousel
     setSelectedCard(cards?.[selectedSlide]);
   }, [selectedSlide, cards, setSelectedCard]);
 

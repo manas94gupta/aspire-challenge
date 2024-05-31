@@ -20,6 +20,7 @@ export function CardActions() {
     switch (type) {
       case 'freeze': {
         if (selectedCard) {
+          // Dispatch action to update card status to 'inactive' or 'active'
           cardsDispatch({
             type: 'freeze',
             cardId: selectedCard.id,
@@ -27,6 +28,7 @@ export function CardActions() {
         }
         return;
       }
+      // Just logging the action for other cased as they're not part of the challenge
       case 'set-limit': {
         console.log('Set limit');
         return;

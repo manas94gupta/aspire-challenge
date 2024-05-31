@@ -31,6 +31,7 @@ import { AddCardForm } from './add-card-form';
 // Hooks
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 
+// Open a dialog on desktop and a drawer on mobile
 function AddCardDialog() {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');

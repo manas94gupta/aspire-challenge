@@ -43,7 +43,7 @@ interface ViewCardsProps {
   type: CardTabValue;
 }
 
-// Simulate cards fetching
+// Simulate cards fetching and schema validation
 async function fetchCards(type: CardTabValue): Promise<CardType[]> {
   await wait(1000);
 

@@ -54,6 +54,7 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
       name: data.name,
     };
 
+    // Dispatch action to add card
     cardsDispatch({ type: 'added', card: newCard });
 
     // Simulate api latency
