@@ -9,6 +9,7 @@ import { useMediaQuery } from '~/hooks/useMediaQuery';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const isDesktop = useMediaQuery('(min-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   if (isDesktop) {
     return (
@@ -18,5 +19,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     );
   }
 
-  return <BottomnavLayout>{children}</BottomnavLayout>;
+  if (isMobile) {
+    return <BottomnavLayout>{children}</BottomnavLayout>;
+  }
+
+  return null;
 }

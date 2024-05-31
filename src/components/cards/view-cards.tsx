@@ -23,7 +23,7 @@ import { useMediaQuery } from '~/hooks/useMediaQuery';
 import { CARD_TABS } from './cards.constants';
 
 // Loaders
-import { CardsLoader } from './cards.loader';
+import { CardsLoaderMobile, CardsLoaderDesktop } from './cards.loader';
 
 // Utils
 import { wait } from '~/lib/utils';
@@ -79,24 +79,22 @@ export function ViewCards({ type }: ViewCardsProps) {
     }
   }, [cards, cardsDispatch]);
 
+  if (loading) {
+    return isDesktop ? <CardsLoaderDesktop /> : <CardsLoaderMobile />;
+  }
+
   if (isDesktop) {
     return (
       <Card>
         <CardContent className="grid grid-cols-[minmax(0,_415px)_minmax(50%,_1fr)] gap-11 px-10 py-8">
-          {loading ? (
-            <CardsLoader />
-          ) : (
-            <>
-              <div className="flex flex-col gap-8">
-                <PayCardsCarousel />
+          <div className="flex flex-col gap-8">
+            <PayCardsCarousel />
 
-                <CardActions />
-              </div>
-              <div>
-                <CardDetails />
-              </div>
-            </>
-          )}
+            <CardActions />
+          </div>
+          <div>
+            <CardDetails />
+          </div>
         </CardContent>
       </Card>
     );
@@ -104,15 +102,9 @@ export function ViewCards({ type }: ViewCardsProps) {
 
   return (
     <>
-      {loading ? (
-        <CardsLoader />
-      ) : (
-        <>
-          <div className="w-[calc(100vw-48px)]">
-            <PayCardsCarousel />
-          </div>
-        </>
-      )}
+      <div className="w-[calc(100vw-48px)]">
+        <PayCardsCarousel />
+      </div>
     </>
   );
 }
