@@ -51,7 +51,7 @@ Open [http://localhost:3000/cards](http://localhost:3000/cards) on your browser 
 ## Tasks List and their status
 
 - [x] Desktop view
-- [ ] Mobile view
+- [x] Mobile view
 - [x] Should use an API architecture, where dummy data can be returned from the APIs
 - [x] At the start up of the application, some cards should be already available
 - [x] Loading state for components
