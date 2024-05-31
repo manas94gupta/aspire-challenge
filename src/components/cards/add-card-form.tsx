@@ -73,7 +73,7 @@ export function AddCardForm({ closeDialog }: { closeDialog: () => void }) {
   return (
     <form
       onSubmit={handleSubmit(handleAddCard)}
-      className="flex flex-col gap-4"
+      className="flex flex-col gap-4 p-5 md:p-0"
     >
       <div className="flex w-full flex-col gap-2">
         <Label htmlFor="name">Name</Label>

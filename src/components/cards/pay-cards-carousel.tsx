@@ -57,11 +57,11 @@ export function PayCardsCarousel() {
 
   return (
     <div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center md:justify-end">
         <Button
           variant="text"
           size="text"
-          className="mb-3 text-xs font-bold"
+          className="mb-3 text-[10px] md:text-xs font-bold"
           onClick={() => setIsCardNumberVisible((prev) => !prev)}
         >
           {isCardNumberVisible ? (
@@ -81,7 +81,7 @@ export function PayCardsCarousel() {
       <Carousel setApi={setCarouselApi} className="w-full">
         <CarouselContent>
           {cards?.map((card) => (
-            <CarouselItem key={card.id}>
+            <CarouselItem key={card.id} className="basis-[380px] md:basis-full">
               <PayCard isCardNumberVisible={isCardNumberVisible} card={card} />
             </CarouselItem>
           ))}

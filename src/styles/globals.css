@@ -12,6 +12,7 @@
 
     --bottomnav: 0 0% 100%;
     --bottomnav-foreground: 0 0% 87%;
+    --bottomnav-height: 68px;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 13%;
@@ -30,6 +31,7 @@
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 149 99% 41%;
+    --accent-secondary: 193 98% 56%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;

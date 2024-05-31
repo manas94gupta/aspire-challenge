@@ -39,10 +39,10 @@ export function PayCard({ isCardNumberVisible, card }: PayCardProps) {
             />
           </div>
         </div>
-        <div className="mb-[6%] text-[calc((1vw/57)*100)] font-bold xl:mb-[7%] xl:text-2xl">
+        <div className="mb-[6%] text-2xl md:text-[calc((1vw/57)*100)] font-bold xl:mb-[7%] xl:text-2xl">
           {card.name}
         </div>
-        <div className="mb-[4%] flex gap-0.5 font-mono text-[calc((1vw/97.5)*100)] font-bold md:gap-0 lg:gap-0.5 xl:mb-[5%] xl:text-sm">
+        <div className="mb-[4%] flex gap-0.5 font-mono text-sm md:text-[calc((1vw/97.5)*100)] font-bold md:gap-0 lg:gap-0.5 xl:mb-[5%] xl:text-sm">
           {/* eg: maskString('12345678', 4) => '****5678' then splitString('****5678') => ['*', '*', '*', '*', '5', '6', '7', '8'] */}
           {splitString(
             isCardNumberVisible ? card.number : maskString(card.number, 12)
@@ -55,7 +55,7 @@ export function PayCard({ isCardNumberVisible, card }: PayCardProps) {
             </span>
           ))}
         </div>
-        <div className="mb-[1%] flex gap-9 text-[calc((1vw/105)*100)] font-bold xl:mb-[1.5%] xl:text-xs">
+        <div className="mb-[1%] flex gap-9 text-xs md:text-[calc((1vw/105)*100)] font-bold xl:mb-[1.5%] xl:text-xs">
           <span>Thru: {card.valid_thru}</span>
           <span>
             CVV:{' '}

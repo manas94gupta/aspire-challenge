@@ -16,10 +16,8 @@ import {
 } from '~/components/ui/dialog';
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -69,9 +67,13 @@ function AddCardDialog() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button size="sm">
+        <Button
+          variant="text"
+          size="sm"
+          className="text-accent-secondary font-bold"
+        >
           <Image
-            src="/assets/images/icons/add.png"
+            src="/assets/images/icons/add-blue.png"
             width={16}
             height={16}
             alt="Add"
@@ -89,11 +91,6 @@ function AddCardDialog() {
           </DrawerDescription>
         </DrawerHeader>
         <AddCardForm closeDialog={() => setOpen(false)} />
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

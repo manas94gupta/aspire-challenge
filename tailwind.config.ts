@@ -26,6 +26,7 @@ const config = {
       spacing: {
         '13': '3.25rem',
         '15': '3.75rem',
+        'bottomnav-height': 'var(--bottomnav-height)',
       },
       boxShadow: {
         'md-center': 'var(--shadow-md-center)',
@@ -60,6 +61,7 @@ const config = {
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
+          secondary: 'hsl(var(--accent-secondary))',
           foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {

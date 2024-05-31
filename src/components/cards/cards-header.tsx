@@ -3,7 +3,7 @@
 // Components
 import AddCardDialog from '~/components/cards/add-card-dialog';
 
-function CardsHeader() {
+export function CardsHeader() {
   return (
     <div className="flex items-end justify-between">
       <div className="flex flex-col gap-2">
@@ -19,5 +19,3 @@ function CardsHeader() {
     </div>
   );
 }
-
-export default CardsHeader;

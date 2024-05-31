@@ -17,6 +17,7 @@ import { useCardsDispatch } from '~/providers/CardsProvider';
 
 // Hooks
 import { useFetch } from '~/hooks/useFetch';
+import { useMediaQuery } from '~/hooks/useMediaQuery';
 
 // Constants
 import { CARD_TABS } from './cards.constants';
@@ -69,6 +70,7 @@ export function ViewCards({ type }: ViewCardsProps) {
     fetchCards,
     type
   );
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
     // Dispatch action to store cards
@@ -77,24 +79,40 @@ export function ViewCards({ type }: ViewCardsProps) {
     }
   }, [cards, cardsDispatch]);
 
-  return (
-    <Card>
-      <CardContent className="grid grid-cols-[minmax(0,_415px)_minmax(50%,_1fr)] gap-11 px-10 py-8">
-        {loading ? (
-          <CardsLoader />
-        ) : (
-          <>
-            <div className="flex flex-col gap-8">
-              <PayCardsCarousel />
+  if (isDesktop) {
+    return (
+      <Card>
+        <CardContent className="grid grid-cols-[minmax(0,_415px)_minmax(50%,_1fr)] gap-11 px-10 py-8">
+          {loading ? (
+            <CardsLoader />
+          ) : (
+            <>
+              <div className="flex flex-col gap-8">
+                <PayCardsCarousel />
 
-              <CardActions />
-            </div>
-            <div>
-              <CardDetails />
-            </div>
-          </>
-        )}
-      </CardContent>
-    </Card>
+                <CardActions />
+              </div>
+              <div>
+                <CardDetails />
+              </div>
+            </>
+          )}
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <>
+      {loading ? (
+        <CardsLoader />
+      ) : (
+        <>
+          <div className="w-[calc(100vw-48px)]">
+            <PayCardsCarousel />
+          </div>
+        </>
+      )}
+    </>
   );
 }
