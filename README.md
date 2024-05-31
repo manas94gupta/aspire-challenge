@@ -31,7 +31,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) on your browser to see the app.
+Open [http://localhost:3000/cards](http://localhost:3000/cards) on your browser to see the app.
 
 ## Available Scripts
 
