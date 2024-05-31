@@ -10,6 +10,9 @@
     --sidenav: 208 76% 20%;
     --sidenav-foreground: 0 0% 100%;
 
+    --bottomnav: 0 0% 100%;
+    --bottomnav-foreground: 0 0% 87%;
+
     --card: 0 0% 100%;
     --card-foreground: 0 0% 13%;
 
@@ -40,6 +43,7 @@
 
     --shadow-md-center: 0 2px 12px 0 hsl(0 0% 0% / 7.84%);
     --shadow-sm-center: 0 0px 8px 0 hsl(0 0% 0% / 7.84%);
+    --shadow-y-negative: 0 -3px 6px 0 hsl(0 0% 0% / 7.84%);
   }
 
   .dark {

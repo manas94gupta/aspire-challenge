@@ -9,7 +9,7 @@ import { cn } from '~/lib/utils';
 
 function NotFound() {
   return (
-    <div className="flex h-full items-center justify-center rounded-lg bg-gray-100">
+    <div className="flex h-[600px] md:h-full items-center justify-center rounded-lg bg-gray-100">
       <div className="mx-auto max-w-xl px-6">
         <div className="mb-8 flex flex-row items-center justify-center">
           <div className="border-r border-gray-400 px-4 text-lg tracking-wider text-gray-500 md:text-xl">

@@ -6,7 +6,7 @@ import { Toaster } from '~/components/ui/toaster';
 import { TooltipProvider } from '~/components/ui/tooltip';
 
 // Components
-import { SidenavLayout } from '~/components/sidenav/sidenav-layout';
+import { AppLayout } from '~/components/applayout/app-layout';
 
 // Fonts
 import { Open_Sans } from 'next/font/google';
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${openSans.variable} font-sans`}>
         <TooltipProvider delayDuration={0}>
-          <SidenavLayout>{children}</SidenavLayout>
+          <AppLayout>{children}</AppLayout>
           <Toaster />
         </TooltipProvider>
       </body>

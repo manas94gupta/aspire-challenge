@@ -30,6 +30,7 @@ const config = {
       boxShadow: {
         'md-center': 'var(--shadow-md-center)',
         'sm-center': 'var(--shadow-sm-center)',
+        'y-negative': 'var(--shadow-y-negative)',
       },
       aspectRatio: {
         idcard: '1.64',
@@ -68,6 +69,10 @@ const config = {
         sidenav: {
           DEFAULT: 'hsl(var(--sidenav))',
           foreground: 'hsl(var(--sidenav-foreground))',
+        },
+        bottomnav: {
+          DEFAULT: 'hsl(var(--bottomnav))',
+          foreground: 'hsl(var(--bottomnav-foreground))',
         },
         card: {
           DEFAULT: 'hsl(var(--card))',

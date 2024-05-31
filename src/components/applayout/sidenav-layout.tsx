@@ -12,7 +12,7 @@ import {
 } from '~/components/ui/resizable';
 
 // Components
-import { Sidenav } from './sidenav';
+import { Sidenav } from '~/components/sidenav/sidenav';
 
 // Hooks
 import { useMediaQuery } from '~/hooks/useMediaQuery';
