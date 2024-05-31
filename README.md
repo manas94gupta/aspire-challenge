@@ -51,7 +51,7 @@ Open [http://localhost:3000/cards](http://localhost:3000/cards) on your browser 
 ## Tasks List and their status
 
 - [x] Desktop view
-- [] Mobile view
+- [ ] Mobile view
 - [x] Should use an API architecture, where dummy data can be returned from the APIs
 - [x] At the start up of the application, some cards should be already available
 - [x] Loading state for components
@@ -66,7 +66,7 @@ Open [http://localhost:3000/cards](http://localhost:3000/cards) on your browser 
   - The frozen card will look different from the others
   - The freeze button will toggle to “unfreeze” for the frozen card
 - [x] Form Validation
-- [] Tests
+- [ ] Tests
 - [x] Use of TypeScript, with appropriate types/interfaces
 - [x] Use of Tailwind CSS
 - [x] Use of any standard UI component library / CSS framework
