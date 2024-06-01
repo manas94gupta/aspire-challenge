@@ -11,12 +11,12 @@ import { CardsProvider } from '~/providers/CardsProvider';
 function Cards() {
   return (
     <CardsProvider>
-      <div className="fixed w-full text-sidenav-foreground md:text-inherit top-0 left-0 p-6 md:p-0 md:static flex flex-col gap-9">
+      <div className="fixed w-full text-sidenav-foreground md:text-inherit top-0 left-0 p-5 md:p-0 md:static flex flex-col gap-9">
         <CardsHeader />
 
         <CardsTabbedLayout />
       </div>
-      <div className="relative z-10 top-[460px] rounded-t-3xl">
+      <div className="relative z-10 top-[430px] rounded-t-3xl">
         <CardDetailsMobileView />
       </div>
     </CardsProvider>

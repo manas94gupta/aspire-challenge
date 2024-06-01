@@ -24,12 +24,12 @@ export function PayCard({ isCardNumberVisible, card }: PayCardProps) {
         </div>
       ) : null}
       <div
-        className={`${card.status === 'inactive' ? 'opacity-50' : ''} aspect-idcard h-full w-full max-w-[340px] overflow-hidden rounded-xl p-[6%] tracking-widest text-accent-foreground  md:max-h-[253px] md:max-w-[415px]`}
+        className={`${card.status === 'inactive' ? 'opacity-50' : ''} aspect-idcard h-full w-full max-w-[320px] overflow-hidden rounded-xl p-[6%] tracking-widest text-accent-foreground  md:max-h-[253px] md:max-w-[415px]`}
         style={{
           background: CARD_TYPES_MAP[card.type].color,
         }}
       >
-        <div className="mb-[2%] text-right xl:mb-[6%]">
+        <div className="mb-0 md:mb-[2%] text-right xl:mb-[6%]">
           <div className="relative inline-block h-[28px] w-[20%]">
             <Image
               src="/assets/images/cards/logo.png"

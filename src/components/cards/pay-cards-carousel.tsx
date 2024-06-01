@@ -81,7 +81,7 @@ export function PayCardsCarousel() {
       <Carousel setApi={setCarouselApi} className="w-full">
         <CarouselContent>
           {cards?.map((card) => (
-            <CarouselItem key={card.id} className="basis-[350px] md:basis-full">
+            <CarouselItem key={card.id} className="basis-[330px] md:basis-full">
               <PayCard isCardNumberVisible={isCardNumberVisible} card={card} />
             </CarouselItem>
           ))}
