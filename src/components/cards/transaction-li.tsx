@@ -39,7 +39,7 @@ export function TransactionLi({
           <span className="mb-3.5 text-xs text-muted-foreground">
             {transaction.date}
           </span>
-          <div className="flex items-center text-xs font-semibold text-primary">
+          <div className="flex items-center text-[10px] md:text-xs font-semibold text-primary">
             <div className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary">
               <Image
                 src="/assets/images/icons/card-swipe.png"
@@ -53,7 +53,7 @@ export function TransactionLi({
           </div>
         </div>
         <div
-          className={`text-sm font-bold ${transaction.type === 'credit' ? 'text-accent' : ''}`}
+          className={`text-sm font-bold basis-15 text-right ${transaction.type === 'credit' ? 'text-accent' : ''}`}
         >
           <span>
             {transaction.type === 'credit' && '+'}
