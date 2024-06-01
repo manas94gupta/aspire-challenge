@@ -21,7 +21,7 @@ import { useMediaQuery } from '~/hooks/useMediaQuery';
 import { cn } from '~/lib/utils';
 
 export function SidenavLayout({ children }: { children: React.ReactNode }) {
-  const isSidenavCollapsed = useMediaQuery('(max-width: 1024px)');
+  const isSidenavCollapsed = useMediaQuery('(max-width: 1023px)');
   const sideNavRef = useRef<ImperativePanelHandle>(null);
 
   useEffect(() => {
