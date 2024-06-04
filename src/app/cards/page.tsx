@@ -16,7 +16,7 @@ function Cards() {
 
         <CardsTabbedLayout />
       </div>
-      <div className="relative z-10 top-[430px] rounded-t-3xl">
+      <div className="relative z-10 top-[430px] rounded-t-3xl md:hidden">
         <CardDetailsMobileView />
       </div>
     </CardsProvider>
